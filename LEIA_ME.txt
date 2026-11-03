@@ -56,4 +56,4 @@ ATUALIZACAO DO FLUXOGRAMA ECG (COMPATIVEL COM SCRIPT 09)
 
 19. Geração de relatório quantitativo da classificação. Foi implementada a apresentação da quantidade de registros originais, excluídos, restantes, classificados como normais, classificados como anormais e encaminhados para revisão, incluindo a contagem individual das seis subcategorias.
 
-20. 
+20. Orgnizando o ECG nas suas reespectivas labels
