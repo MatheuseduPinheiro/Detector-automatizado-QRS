@@ -1,0 +1,18 @@
+ATUALIZACAO DO FLUXOGRAMA ECG (COMPATIVEL COM SCRIPT 09)
+
+1. Execute primeiro 09_ECG_12_Derivacoes_Parametros_Completos.py com REGISTRO="21836_hr".
+2. O arquivo de entrada deve existir:
+   ImagensECGSaida\21836_hr_medidas_12_derivacoes.csv
+3. Coloque ecg_fluxograma.py e referencias_ecg.py na mesma pasta.
+4. Exemplo de execucao no Windows PowerShell:
+   python ecg_fluxograma.py --base "C:\Users\Walbe\Downloads\2026_MateusECG\DataSet\PTB-XL" --ecg-id 21836 --medidas-dir "C:\Users\Walbe\Downloads\2026_MateusECG\ImagensECGSaida" --saida "C:\Users\Walbe\Downloads\2026_MateusECG\ImagensECGSaida\fluxograma"
+5. Saidas: ecg_21836.html e ecg_21836.json na pasta --saida.
+6. Este modulo NAO realiza delineacao: consome exclusivamente CSV do 09.
+7. Cada derivacao foi delineada separadamente; medianas nao correspondem necessariamente ao mesmo batimento.
+8. F03, F10, F12, F13 permanecem indeterminadas por seguranca: falta calculo/criterio validado.
+9. Testado com dados sinteticos, nao com o registro clinico real 21836_hr.
+10. O resultado e exploratorio para pesquisa; nao e diagnostico nem laudo.
+
+
+-------------------------------------------------------------------------------------------------------------------------
+11. Fatiar a base 0 e 1
