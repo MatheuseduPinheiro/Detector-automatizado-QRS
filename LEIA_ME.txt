@@ -15,4 +15,45 @@ ATUALIZACAO DO FLUXOGRAMA ECG (COMPATIVEL COM SCRIPT 09)
 
 
 -------------------------------------------------------------------------------------------------------------------------
-11. Fatiar a base 0 e 1
+11. identificar , separar e isolar as que possuem Normalidades e Anormalidades Juntas e isolalas para não causar vicio aos rotulos
+12. Exclusão das instâncias conflitantes antes da classificação. Foi implementado um filtro utilizando a coluna ecg_id para impedir que as 445 instâncias identificadas sejam utilizadas na classe 0, na classe 1 ou em suas subcategorias.
+
+13. Definição da classificação binária dos registros eletrocardiográficos. Foi estabelecida uma organização em duas classes principais:
+
+    0 — Normal/Sinusal: registros com códigos de normalidade ou ritmo sinusal, sem outras alterações identificadas pelos critérios implementados.
+
+    1 — Anormal: registros que apresentam alterações diagnósticas, morfológicas ou de ritmo identificadas pelo algoritmo.
+
+14. Subcategorização dos registros anormais. A classe 1 foi subdividida nas seguintes categorias:
+
+    1.1 — MI: Infarto do miocárdio.
+
+    1.2 — STTC: Alterações do segmento ST e da onda T.
+
+    1.3 — CD: Distúrbios de condução.
+
+    1.4 — HYP: Hipertrofia cardíaca.
+
+    1.5 — FORM: Alterações morfológicas.
+
+    1.6 — RHYTHM: Alterações de ritmo.
+
+15. Implementação da classificação multirrótulo nas subcategorias. Foi permitido que um mesmo ECG pertença a mais de uma subcategoria anormal, preservando as múltiplas alterações registradas no campo scp_codes, sem duplicar sua contagem na classe principal 1.
+
+16. Separação dos registros sem classificação suficiente. Foi criada a categoria Revisar, destinada às instâncias que não apresentam informações suficientes para classificação ou possuem códigos SCP não reconhecidos pelo algoritmo.
+
+17. Organização e exportação das classes em diretórios. Foi implementada a criação automática das pastas 0, 1, 1.1 a 1.6 e Revisar, com exportação dos registros classificados em arquivos CSV individuais. A execução substitui os CSVs de classificação anteriores, preservando a base original.
+
+18. Implementação de verificações de integridade. Foram acrescentadas validações para confirmar que:
+
+    Nenhuma das 445 instâncias excluídas seja atribuída às classes ou subcategorias.
+
+    Nenhum registro seja simultaneamente classificado nas classes principais 0 e 1.
+
+    A soma dos registros das classes 0, 1 e Revisar corresponda ao total após as exclusões.
+
+    Os registros excluídos sejam contabilizados separadamente dos registros utilizados na classificação.
+
+19. Geração de relatório quantitativo da classificação. Foi implementada a apresentação da quantidade de registros originais, excluídos, restantes, classificados como normais, classificados como anormais e encaminhados para revisão, incluindo a contagem individual das seis subcategorias.
+
+20. 
