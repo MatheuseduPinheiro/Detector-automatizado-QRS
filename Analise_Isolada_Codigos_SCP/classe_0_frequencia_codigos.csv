@@ -1,0 +1,3 @@
+﻿rotulo,codigo_scp,descricao_ptbxl,n_ecgs_base_completa,n_ecgs_excluidos_conflito,n_ecgs_classe_0_regra_original,n_ecgs_classe_0_criterio_estrito
+0,NORM,normal ECG,9514,445,9069,9069
+0,SR,sinus rhythm,16748,359,16389,7859

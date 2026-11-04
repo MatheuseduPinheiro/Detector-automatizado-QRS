@@ -56,4 +56,150 @@ ATUALIZACAO DO FLUXOGRAMA ECG (COMPATIVEL COM SCRIPT 09)
 
 19. Geração de relatório quantitativo da classificação. Foi implementada a apresentação da quantidade de registros originais, excluídos, restantes, classificados como normais, classificados como anormais e encaminhados para revisão, incluindo a contagem individual das seis subcategorias.
 
-20. Orgnizando o ECG nas suas reespectivas labels
+20. Organização física dos registros eletrocardiográficos por classe
+
+Foi estabelecida uma estrutura de diretórios para organizar os registros eletrocardiográficos da PTB-XL de acordo com os rótulos definidos na etapa de classificação. Os arquivos correspondentes a cada registro, incluindo os formatos .dat e .hea, foram associados às respectivas classes e subcategorias.
+
+A organização foi realizada no diretório ECG_Organizados, preservando os arquivos originais da base PTB-XL.
+
+
+21. Preservação da identificação e rastreabilidade dos registros
+
+Foi mantida a identificação individual de cada registro por meio do campo ecg_id, permitindo relacionar os arquivos organizados aos metadados originais da PTB-XL.
+
+Também foi preservada a associação com informações como patient_id, rótulos diagnósticos, subcategorias e caminhos dos arquivos eletrocardiográficos, quando disponíveis.
+22. Tratamento dos registros com múltiplas subcategorias
+
+Foi considerada a possibilidade de um mesmo registro eletrocardiográfico apresentar simultaneamente diferentes alterações anormais, como MI, STTC e CD.
+
+Nesses casos, o registro pode estar associado a mais de uma subcategoria, sem que isso represente diferentes exames. Essa característica deve ser considerada nas análises quantitativas e na preparação dos conjuntos de treinamento.
+23. Carregamento dos sinais eletrocardiográficos de 12 derivações
+
+Foi implementada a leitura dos registros eletrocardiográficos organizados, utilizando os arquivos WFDB correspondentes.
+
+Cada registro foi processado considerando suas 12 derivações:
+
+    I, II e III;
+
+    aVR, aVL e aVF;
+
+    V1, V2, V3, V4, V5 e V6.
+
+O processamento foi estruturado para permitir a análise individual de cada derivação.
+24. Implementação do pré-processamento dos sinais
+
+Foi incorporada uma etapa de pré-processamento para preparar os sinais eletrocardiográficos para a identificação dos complexos QRS.
+
+O procedimento contempla filtragem e transformação dos sinais para destacar regiões de interesse relacionadas à atividade ventricular, conforme os parâmetros definidos no algoritmo de extração.
+25. Implementação da detecção automática dos complexos QRS
+
+Foi desenvolvido um procedimento computacional para identificar candidatos a complexos QRS nas derivações eletrocardiográficas.
+
+A detecção foi realizada separadamente para cada derivação, permitindo que os candidatos identificados em um canal não dependam diretamente das detecções dos demais.
+26. Estimativa dos limites temporais dos complexos QRS
+
+Após a identificação dos candidatos, foi implementada a estimativa dos pontos de início e término de cada complexo QRS.
+
+Esses limites permitem calcular a duração estimada dos complexos, expressa em milissegundos.
+
+As estimativas possuem caráter exploratório e não constituem delineações clinicamente validadas.
+27. Identificação exploratória de complexos QRS alargados
+
+Foi adotado o limiar de 120 milissegundos para distinguir complexos QRS com duração estimada inferior ou igual ao critério estabelecido daqueles classificados como alargados.
+
+A identificação foi utilizada como parâmetro de análise dos recortes, sem representar diagnóstico clínico independente.
+28. Extração individual dos recortes QRS
+
+Foi implementada a extração dos trechos do sinal correspondentes aos complexos QRS identificados.
+
+Os recortes foram organizados separadamente por registro eletrocardiográfico e derivação, mantendo a associação entre cada segmento extraído e seu sinal de origem.
+29. Exportação dos recortes em arquivos CSV
+
+Foi estabelecida a exportação dos segmentos QRS para arquivos estruturados, permitindo sua utilização em análises posteriores.
+
+Cada derivação possui um arquivo específico, como I_QRS.csv, II_QRS.csv, III_QRS.csv e assim sucessivamente até V6_QRS.csv.
+
+Os arquivos podem conter informações como identificação do ECG, número do batimento, amostras do segmento, tempo relativo, amplitude e duração estimada.
+30. Organização dos recortes no diretório Recortes-QRS
+
+Foi definida uma estrutura de diretórios para armazenar os resultados da extração, respeitando a classificação atribuída aos registros eletrocardiográficos.
+
+O diretório Recortes-QRS mantém a separação por classe, subcategoria, registro e derivação, facilitando a localização dos segmentos e sua associação com os metadados.
+31. Análise da completude dos recortes por derivação
+
+Foi desenvolvido um procedimento para avaliar a disponibilidade e a completude dos recortes QRS em cada uma das 12 derivações.
+
+A análise considera os registros classificados como:
+
+    COMPLETA;
+
+    PARCIAL;
+
+    SEM QRS DETECTADO;
+
+    SEM RECORTES VÁLIDOS;
+
+    DERIVAÇÃO AUSENTE.
+
+A classificação de completude representa o resultado das verificações computacionais implementadas, não garantindo, isoladamente, a correção fisiológica da delimitação.
+32. Geração de relatório quantitativo de completude
+
+Foi implementada a consolidação dos resultados da análise de completude, apresentando a quantidade de registros em cada situação para cada derivação.
+
+O relatório permite identificar diferenças na disponibilidade de recortes e possíveis problemas na detecção ou na organização dos arquivos.
+33. Seleção dos registros elegíveis para os experimentos
+
+Foi estabelecido o critério de utilização exclusiva dos registros classificados como COMPLETA na preparação dos experimentos de aprendizado de máquina.
+
+Essa seleção tem como objetivo utilizar recortes que satisfaçam os critérios computacionais de integridade definidos no processamento.
+34. Controle de duplicidade e prevenção de vazamento de dados
+
+Foi prevista a identificação de registros repetidos decorrentes da organização multirrótulo, utilizando o campo ecg_id.
+
+Também foi considerado o campo patient_id para evitar que registros pertencentes ao mesmo paciente sejam distribuídos indevidamente entre treinamento, validação e teste.
+
+Os 445 registros anteriormente identificados como conflitantes devem permanecer excluídos dos experimentos.
+35. Divisão dos dados em treinamento, validação e teste
+
+Foi definida a separação dos registros elegíveis em três conjuntos experimentais:
+
+    60% para treinamento;
+
+    20% para validação;
+
+    20% para teste.
+
+A divisão utiliza os grupos de particionamento definidos para a PTB-XL, com verificação das proporções efetivamente obtidas após a aplicação dos filtros.
+36. Implementação de experimentos independentes por derivação
+
+Foi estruturado um procedimento de treinamento independente para cada uma das 12 derivações eletrocardiográficas.
+
+Cada experimento utiliza exclusivamente os atributos extraídos dos recortes QRS da derivação correspondente, sem combinar informações de outras derivações.
+
+Essa estratégia permite investigar separadamente a capacidade de discriminação de cada canal eletrocardiográfico.
+37. Implementação do algoritmo Random Forest
+
+Foi incorporado o algoritmo Random Forest para realizar a classificação binária dos registros eletrocardiográficos em Normal/Sinusal e Anormal.
+
+Os experimentos foram organizados por derivação, com preparação dos atributos, treinamento do classificador e avaliação dos resultados nos conjuntos disponíveis.
+38. Exportação dos modelos treinados e dos resultados experimentais
+
+Foi implementada a exportação dos modelos Random Forest no formato .pkl, utilizando a nomenclatura que identifica o algoritmo e a derivação correspondente.
+
+Os resultados são organizados no diretório Experimentos-QRS-60-20-20, incluindo, conforme a disponibilidade dos dados:
+
+    Modelos treinados em arquivos .pkl;
+
+    Arquivos de atributos e partições;
+
+    Predições de validação e teste;
+
+    Relatórios de classificação;
+
+    Matrizes de confusão;
+
+    Métricas de desempenho;
+
+    Relação dos modelos efetivamente exportados.
+
+A exportação de cada modelo depende da existência de dados suficientes para o treinamento.

@@ -1,0 +1,75 @@
+﻿categoria,codigo_scp,n_ecgs_total,n_ecgs_conflitantes,n_ecgs_sem_conflitantes,descricao,subclasse_diagnostica
+MI,IMI,2676,1,2675,inferior myocardial infarction,IMI
+MI,ASMI,2357,0,2357,anteroseptal myocardial infarction,AMI
+MI,ILMI,478,0,478,inferolateral myocardial infarction,IMI
+MI,AMI,353,0,353,anterior myocardial infarction,AMI
+MI,ALMI,288,0,288,anterolateral myocardial infarction,AMI
+MI,INJAS,214,0,214,subendocardial injury in anteroseptal leads,AMI
+MI,LMI,201,0,201,lateral myocardial infarction,LMI
+MI,INJAL,145,0,145,subendocardial injury in anterolateral leads,AMI
+MI,IPLMI,51,0,51,inferoposterolateral myocardial infarction,IMI
+MI,IPMI,33,0,33,inferoposterior myocardial infarction,IMI
+MI,INJIN,18,0,18,subendocardial injury in inferior leads,IMI
+MI,INJLA,17,0,17,subendocardial injury in lateral leads,AMI
+MI,PMI,17,0,17,posterior myocardial infarction,PMI
+MI,INJIL,15,0,15,subendocardial injury in inferolateral leads,IMI
+STTC,NDT,1825,1,1824,non-diagnostic T abnormalities,STTC
+STTC,ISC_,1272,0,1272,non-specific ischemic,ISC_
+STTC,NST_,767,31,736,non-specific ST changes,NST_
+STTC,ISCAL,659,0,659,ischemic in anterolateral leads,ISCA
+STTC,ISCIN,218,0,218,ischemic in inferior leads,ISCI
+STTC,DIG,181,0,181,digitalis-effect,STTC
+STTC,ISCIL,179,0,179,ischemic in inferolateral leads,ISCI
+STTC,ISCAS,169,0,169,ischemic in anteroseptal leads,ISCA
+STTC,ISCLA,140,0,140,ischemic in lateral leads,ISCA
+STTC,LNGQT,117,0,117,long QT-interval,STTC
+STTC,ANEUR,104,0,104,ST-T changes compatible with ventricular aneurysm,STTC
+STTC,EL,96,1,95,electrolytic disturbance or drug (former EDIS),STTC
+STTC,ISCAN,44,0,44,ischemic in anterior leads,ISCA
+CD,LAFB,1623,21,1602,left anterior fascicular block,LAFB/LPFB
+CD,IRBBB,1118,250,868,incomplete right bundle branch block,IRBBB
+CD,1AVB,793,38,755,first degree AV block,_AVB
+CD,IVCD,787,106,681,non-specific intraventricular conduction disturbance (block),IVCD
+CD,CRBBB,541,0,541,complete right bundle branch block,CRBBB
+CD,CLBBB,536,0,536,complete left bundle branch block,CLBBB
+CD,LPFB,177,7,170,left posterior fascicular block,LAFB/LPFB
+CD,WPW,79,0,79,Wolf-Parkinson-White syndrome,WPW
+CD,ILBBB,77,0,77,incomplete left bundle branch block,ILBBB
+CD,3AVB,16,0,16,third degree AV block,_AVB
+CD,2AVB,14,1,13,second degree AV block,_AVB
+HYP,LVH,2132,1,2131,left ventricular hypertrophy,LVH
+HYP,LAO/LAE,426,3,423,left atrial overload/enlargement,LAO/LAE
+HYP,RVH,126,0,126,right ventricular hypertrophy,RVH
+HYP,RAO/RAE,99,1,98,right atrial overload/enlargement,RAO/RAE
+HYP,SEHYP,29,0,29,septal hypertrophy,SEHYP
+FORM,ABQRS,3327,10,3317,abnormal QRS,nan
+FORM,NDT,1825,1,1824,non-diagnostic T abnormalities,STTC
+FORM,PVC,1143,9,1134,ventricular premature complex,nan
+FORM,STD_,1009,5,1004,non-specific ST depression,nan
+FORM,VCLVH,875,8,867,voltage criteria (QRS) for left ventricular hypertrophy,nan
+FORM,NST_,767,31,736,non-specific ST changes,NST_
+FORM,QWAVE,548,8,540,Q waves present,nan
+FORM,LOWT,438,1,437,low amplitude T-waves,nan
+FORM,NT_,423,5,418,non-specific T-wave changes,nan
+FORM,PAC,398,9,389,atrial premature complex,nan
+FORM,LPR,340,9,331,prolonged PR interval,nan
+FORM,INVT,294,0,294,inverted T-waves,nan
+FORM,LVOLT,182,5,177,low QRS voltages in the frontal and horizontal leads,nan
+FORM,DIG,181,0,181,digitalis-effect,STTC
+FORM,LNGQT,117,0,117,long QT-interval,STTC
+FORM,HVOLT,62,1,61,high QRS voltage,nan
+FORM,TAB_,35,6,29,T-wave abnormality,nan
+FORM,STE_,28,0,28,non-specific ST elevation,nan
+FORM,PRC(S),10,0,10,premature complex(es),nan
+RHYTHM,SR,16748,359,16389,sinus rhythm,nan
+RHYTHM,AFIB,1514,2,1512,atrial fibrillation,nan
+RHYTHM,STACH,826,13,813,sinus tachycardia,nan
+RHYTHM,SARRH,772,34,738,sinus arrhythmia,nan
+RHYTHM,SBRAD,637,26,611,sinus bradycardia,nan
+RHYTHM,PACE,294,0,294,normal functioning artificial pacemaker,nan
+RHYTHM,SVARR,157,1,156,supraventricular arrhythmia,nan
+RHYTHM,BIGU,82,0,82,"bigeminal pattern (unknown origin, SV or Ventricular)",nan
+RHYTHM,AFLT,73,0,73,atrial flutter,nan
+RHYTHM,SVTAC,27,0,27,supraventricular tachycardia,nan
+RHYTHM,PSVT,24,0,24,paroxysmal supraventricular tachycardia,nan
+RHYTHM,TRIGU,20,0,20,"trigeminal pattern (unknown origin, SV or Ventricular)",nan
