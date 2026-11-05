@@ -1,0 +1,1 @@
+ecg_id,patient_id,rotulo,particao,n_qrs,duracao_media,duracao_std,duracao_mediana,duracao_min,duracao_max,qrs_alargado_frac,amplitude_media,amplitude_std,amplitude_min,amplitude_max,amplitude_pico_abs_media,amplitude_ptp_media,energia_media,amplitude_mediana,amplitude_abs_media

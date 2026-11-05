@@ -1,0 +1,10 @@
+derivacao,algoritmo,arquivo_pkl,tamanho_bytes,ecgs_treino
+I,RandomForest,C:\Users\Matheus\Documents\Detctor-automatizado-QRS\Experimentos-QRS-60-20-20\I\modelo_RandomForest_I.pkl,56718575,10026
+II,RandomForest,C:\Users\Matheus\Documents\Detctor-automatizado-QRS\Experimentos-QRS-60-20-20\II\modelo_RandomForest_II.pkl,53194575,10051
+III,RandomForest,C:\Users\Matheus\Documents\Detctor-automatizado-QRS\Experimentos-QRS-60-20-20\III\modelo_RandomForest_III.pkl,53701935,9969
+V1,RandomForest,C:\Users\Matheus\Documents\Detctor-automatizado-QRS\Experimentos-QRS-60-20-20\V1\modelo_RandomForest_V1.pkl,56343855,10025
+V2,RandomForest,C:\Users\Matheus\Documents\Detctor-automatizado-QRS\Experimentos-QRS-60-20-20\V2\modelo_RandomForest_V2.pkl,57082415,10024
+V3,RandomForest,C:\Users\Matheus\Documents\Detctor-automatizado-QRS\Experimentos-QRS-60-20-20\V3\modelo_RandomForest_V3.pkl,56592335,10003
+V4,RandomForest,C:\Users\Matheus\Documents\Detctor-automatizado-QRS\Experimentos-QRS-60-20-20\V4\modelo_RandomForest_V4.pkl,55558735,10069
+V5,RandomForest,C:\Users\Matheus\Documents\Detctor-automatizado-QRS\Experimentos-QRS-60-20-20\V5\modelo_RandomForest_V5.pkl,54702095,10054
+V6,RandomForest,C:\Users\Matheus\Documents\Detctor-automatizado-QRS\Experimentos-QRS-60-20-20\V6\modelo_RandomForest_V6.pkl,54573935,10039
